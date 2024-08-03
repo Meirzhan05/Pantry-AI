@@ -8,6 +8,7 @@ import { db } from "./server/server";
 import { PantryContext } from "./context/PantryContext";
 import { UserAuth } from "./context/AuthContext";
 import { where } from "firebase/firestore";
+
 export default function Pantry() {
   const [newItem, setNewItem] = useState({name: '', quantity: ''});
   const [searchTerm, setSearchTerm] = useState('');
@@ -50,7 +51,6 @@ export default function Pantry() {
   const deleteItem = async (id) => {
     await deleteDoc(doc(db, 'items', id));
     saveItems(items.filter(item => item.id !== id))
-    // setItems(items.filter(item => item.id !== id));
   }
 
   function capitalizeFirstLetter(string) {

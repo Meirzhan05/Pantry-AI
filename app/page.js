@@ -8,11 +8,12 @@ export default function Home() {
   const router = useRouter();
   const { user } = UserAuth();
 
-  if (!user) {
-    useEffect(() => {
+  useEffect(() => {
+
+    if (!user) {
       router.push('/register');
-    }, []);
-  }
+    }
+  }, []);
 
   return (
     <Box>
