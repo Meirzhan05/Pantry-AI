@@ -10,12 +10,13 @@ function ChatHome() {
   const [showButton, setShowButton] = useState(true);
   const router = useRouter();
   const { user } = UserAuth();
+  useEffect(() => {
 
-  if (!user) {
-    useEffect(() => {
+    if (!user) {
       router.push('/register');
-    }, []);
-  }
+    }
+  }, []);
+
   return (
     <Box>
       {showButton && (
