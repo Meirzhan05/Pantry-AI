@@ -11,7 +11,6 @@ export default function Register() {
 
   useEffect(() => {
     if (user) {
-      console.log(user);
       router.push('/');
     }
   }, [user, router]);
@@ -19,8 +18,9 @@ export default function Register() {
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
+      console.log("success")
     } catch (error) {
-      console.error(error);
+      console.log("error")
     }
   };
 

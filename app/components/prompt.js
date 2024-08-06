@@ -6,4 +6,7 @@ function recipePrompt(pantry) {
     return prompt;
 }
 
+export const visionPrompt = "Create a JSON structure using the template below for the items on the photo. If there are no items just output JSON with keys and empty values. \n\n" 
++ " template: {'name': 'item name', 'quantity': 'item quantity'}"
+
 export default recipePrompt;

@@ -2,7 +2,7 @@
 'use client'
 import React, { useState } from 'react';
 import { Box, Button } from '@mui/material';
-import Chat from './chat';
+import Chat from '../components/chat';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation'
 import { UserAuth } from '../context/AuthContext';

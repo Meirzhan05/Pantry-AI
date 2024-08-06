@@ -33,8 +33,8 @@ function Chat() {
       <Box
         sx={{
           display: 'flex',
-          justifyContent: 'center', // Add this
-          alignItems: 'center', // And this
+          justifyContent: 'center',
+          alignItems: 'center', 
           backgroundColor: '#F3F3F3',
           color: 'black',
           margin: 2,
