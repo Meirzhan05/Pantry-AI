@@ -36,7 +36,6 @@ const ImageForm =  ({ imgSrc, open, setIsOpen }) => {
             ]
         });
         const item = JSON.parse(response.choices[0].message.content);
-        console.log(item.name, item.quantity);
         addItem(user, item);
     }
     const handleClose = () => {

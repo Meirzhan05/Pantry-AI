@@ -7,8 +7,7 @@ import { useRouter } from 'next/navigation';
 export default function Register() {
   const { user, googleSignIn } = UserAuth();
   const router = useRouter();
-
-
+  
   useEffect(() => {
     if (user) {
       router.push('/');
@@ -18,7 +17,6 @@ export default function Register() {
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
-      console.log("success")
     } catch (error) {
       console.log("error")
     }
