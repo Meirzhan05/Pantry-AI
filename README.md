@@ -22,61 +22,61 @@ You can view a live demo of the project at [https://your-demo-link.com](https://
 One of the most exciting features of the Pantry-AI project is the ability to recognize items from an image:
 
 ```javascript
-    // This function gets a completion from the OpenAI API
-    const getCompletion = async () => {
-        // Send a request to the OpenAI API
-        const response = await client.chat.completions.create({
-            // Specify the model to use
-            model: "gpt-4o-mini",
-            // Specify the response format
-            response_format: {
-                "type": "json_object"
-            },
-            // Specify the messages to send to the model
-            messages: [
-                {
-                    "role": "user",
-                    // The content of the message includes both text and an image
-                    "content": [
-                        {
-                            // The text part of the message
-                            "type": "text", 
-                            "text": visionPrompt
+// This function gets a completion from the OpenAI API
+const getCompletion = async () => {
+    // Send a request to the OpenAI API
+    const response = await client.chat.completions.create({
+        // Specify the model to use
+        model: "gpt-4o-mini",
+        // Specify the response format
+        response_format: {
+            "type": "json_object"
+        },
+        // Specify the messages to send to the model
+        messages: [
+            {
+                "role": "user",
+                // The content of the message includes both text and an image
+                "content": [
+                    {
+                        // The text part of the message
+                        "type": "text", 
+                        "text": visionPrompt
+                    },
+                    {
+                        // The image part of the message
+                        "type": "image_url",
+                        "image_url": {
+                            "url": imgSrc,
                         },
-                        {
-                            // The image part of the message
-                            "type": "image_url",
-                            "image_url": {
-                                "url": imgSrc,
-                            },
-                        },
-                    ]                    
-                }
-            ]
-        });
+                    },
+                ]                    
+            }
+        ]
+    });
 
-        // Parse the first choice from the response
-        const item = JSON.parse(response.choices[0].message.content);
+    // Parse the first choice from the response
+    const item = JSON.parse(response.choices[0].message.content);
 
-        // Add the item to the user's pantry
-        addItem(user, item);
-    }
+    // Add the item to the user's pantry
+    addItem(user, item);
+}
 ```
 
 In the Pantry-AI project, I implemented a function to generate a cooking prompt based on the ingredients available in the user's pantry:
 
 ```javascript
-    function recipePrompt(pantry) {
-        // Map each item in the pantry to a string representation
-        const ingredients = pantry.map(item => `${item.name} (${item.quantity})`).join(", ");
+function recipePrompt(pantry) {
+    // Map each item in the pantry to a string representation
+    const ingredients = pantry.map(item => `${item.name} (${item.quantity})`).join(", ");
 
-        // Construct the prompt string
-        const prompt = "You are a professional cook, who is able to cook anything. You have a pantry with the following ingredients: " + ingredients + 
-        " You should provide a recipe of a dish that can be cooked with these ingredients. For the style add 2 space between each section."
+    // Construct the prompt string
+    const prompt = "You are a professional cook, who is able to cook anything. You have a pantry with the following ingredients: " + ingredients + 
+    " You should provide a recipe of a dish that can be cooked with these ingredients. For the style add 2 space between each section."
 
-        // Return the prompt
-        return prompt;
-    }
+    // Return the prompt
+    return prompt;
+}
 ```
 
 ## Installation
