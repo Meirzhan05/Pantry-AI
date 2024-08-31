@@ -1,7 +1,7 @@
 ## PantryAI
 
 ## Demo
-You can view a live demo of the project at [https://your-demo-link.com](https://your-demo-link.com).
+You can view a live demo of the project at [https://pantry-pied.vercel.app/](https://pantry-pied.vercel.app/).
 
 ## Tech/framework used
 <b>Built with</b>
